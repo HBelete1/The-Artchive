@@ -7,9 +7,10 @@ body {
   background-repeat: repeat-y;
 }
 
+
 .container {
   background-color: white;
-  width: 50%;
+  width: 60%;
   margin: auto;
   padding: 20px;
   border-radius: 10px;
@@ -55,33 +56,39 @@ body {
 
 .form-group {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin-top: 20px;
 }
 
 .column {
-  flex: 1;
   text-align: left;
   margin-bottom: 20px;
+  width: calc(50% - 10px);
 }
 
 .column label {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .column input,
-.column select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  margin-top: 5px;
-  overflow-wrap: break-word;
+select {
+width: calc(100% - 10px);
+padding: 10px;
+border-radius: 5px;
+border: 1px solid #ccc;
+box-sizing: border-box;
+margin-top: 5px;
+}
+
+.category-select {
+  position: relative;
 }
 
 .btn {
   padding: 10px 20px;
+  margin-top: 20px;
   background-color: #ABAFD9;
   color: white;
   border: none;
@@ -108,28 +115,3 @@ body {
 .btn:hover {
   background-color: #6a1b9a;
 }
-
-.date-input-container {
-  position: relative;
-}
-
-.date-input-container input[type="text"] {
-  width: calc(100% - 80px);
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  margin-top: 5px;
-}
-
-/*
-.date-input-container button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-}
-*/
