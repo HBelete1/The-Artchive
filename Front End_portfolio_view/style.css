@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    background-color: #ABAFD9;
+}
+
+hr {
+    border-style: solid;
+    margin: 0;
+}
+
+h1 {
+    font-family: dosis;
+    font-size: 40px;
+    text-align: center;
+}
+
+h2 {
+    font-family: dosis;
+}
+
+h3 {
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+#delete {
+    color: rgb(196, 41, 98);
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #d9d9d9;
+    padding: 5px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    padding: 5px 10px;
+}
+
+p > a {
+    padding: 10px;
+}
+
+.header {
+    left: 50%;
+    padding: 10px 500px;
+
+}
+
+.border {
+    display: flex;
+    justify-content: center;
+}
+
+.bordercontainer {
+    display: flex;
+    flex-direction: left;
+    padding: 20px;
+}
+
+.button {
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    background-color:white;
+    color:black;
+    border-radius: 12px;  
+}
+
+.cardcontainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; 
+
+}
+
+.card {
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+   
+
+}
+
+.card > .container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+    column-gap: 20em;
+    row-gap: 1em;
+
+}
