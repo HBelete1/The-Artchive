@@ -27,21 +27,23 @@ function App() {
               <input type="text" id="date" name="date" />
             </div>
           </div>
-          <div className="form-group">
-            <label htmlFor="description">Description:</label>
-            <input type="text" id="description" name="description" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="category">Category:</label>
-            <select id="category" name="category">
-              <option value="painting">Painting</option>
-              <option value="abstract">Abstract</option>
-              <option value="still-life">Still Life</option>
-              <option value="pop-art">Pop Art</option>
-              <option value="impressionism">Impressionism</option>
-              <option value="expressionism">Expressionism</option>
-              {/* Add more options as needed */}
-            </select>
+          <div className="form-group"> {/* Corrected class */}
+            <div className="column">
+              <label htmlFor="description">Description:</label>
+              <input type="text" id="description" name="description" />
+            </div>
+            <div className="column">
+              <label htmlFor="category">Category:</label>
+              <select id="category" name="category">
+                <option value="painting">Painting</option>
+                <option value="abstract">Abstract</option>
+                <option value="still-life">Still Life</option>
+                <option value="pop-art">Pop Art</option>
+                <option value="impressionism">Impressionism</option>
+                <option value="expressionism">Expressionism</option>
+                {/* Add more options as needed */}
+              </select>
+            </div>
           </div>
           <button className="btn" id="submit-btn" type="submit">
             Post
