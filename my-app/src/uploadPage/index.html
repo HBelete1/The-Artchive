@@ -19,37 +19,37 @@
       </label>
     </div>
   </div>
-<form id="artwork-form">
-  <div class="form-group">
-    <div class="column">
-      <label for="title">Title:</label>
-      <input type="text" id="title" name="title">
+  <form id="artwork-form">
+    <div class="form-group">
+      <div class="column">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title">
+      </div>
+      <div class="column">
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date">
+      </div>
     </div>
-    <div class="column">
-      <label for="date">Date:</label>
-      <input type="text" id="date" name="date">
+    <div class="form-group"> <!-- Corrected class -->
+      <div class="column">
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description">
+      </div>
+      <div class="column">
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+          <option value="painting">Painting</option>
+          <option value="abstract">Abstract</option>
+          <option value="still-life">Still Life</option>
+          <option value="pop-art">Pop Art</option>
+          <option value="impressionism">Impressionism</option>
+          <option value="expressionism">Expressionism</option>
+          <!-- Add more options as needed -->
+        </select>
+      </div>
     </div>
-  </div>
-  <div class="form-group-description-category">
-    <div class="column">
-      <label for="description">Description:</label>
-      <input type="text" id="description" name="description">
-    </div>
-    <div class="column">
-      <label for="category">Category:</label>
-      <select id="category" name="category">
-        <option value="painting">Painting</option>
-        <option value="abstract">Abstract</option>
-        <option value="still-life">Still Life</option>
-        <option value="pop-art">Pop Art</option>
-        <option value="impressionism">Impressionism</option>
-        <option value="expressionism">Expressionism</option>
-        <!-- Add more options as needed -->
-      </select>
-    </div>
-  </div>
-  <button class="btn" id="submit-btn" type="submit">Post</button>
-</form>
+    <button class="btn" id="submit-btn" type="submit">Post</button>
+  </form>
 </div>
 
 </body>
