@@ -27,7 +27,7 @@ function App() {
               <input type="text" id="date" name="date" />
             </div>
           </div>
-          <div className="form-group"> {/* Corrected class */}
+          <div className="form-group"> {}
             <div className="column">
               <label htmlFor="description">Description:</label>
               <input type="text" id="description" name="description" />
