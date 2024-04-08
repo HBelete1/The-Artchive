@@ -1,15 +1,19 @@
+'use client'
 //imports
 import Link from 'next/link';
 import Button from '../components/Button'
 import Card from '../components/Card'
 import './login.css';
-import image from './artchive.png'
+import image from '../../../public/images/artchive.png'
+
 
 export default function Login() {
+
     return (
         <div class='bg'>
             <div class='header'>
-                <img src={image} alt='artchive logo' height='100' width='100'/>
+                <img src={image} alt='artchive logo' height='100' width='100' href='/signup'/>
+                <Link href = '/' class='link'>Return to home page</Link>
             </div>
             <Card class='input'>
                 <h3>Log in to your account:</h3>
