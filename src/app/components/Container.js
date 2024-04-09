@@ -1,6 +1,6 @@
 import React from 'react';
 import ArtCard from './ArtCard';
-import './style.css';
+import '../portfolio/style.css';
 
 const Container = () => {
     return (
