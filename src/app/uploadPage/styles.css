@@ -110,3 +110,6 @@ select {
 .btn:hover {
   background-color: #6a1b9a;
 }
+label {
+  color:rgb(0, 0, 0);
+}
