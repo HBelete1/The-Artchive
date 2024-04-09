@@ -1,5 +1,6 @@
+'use client'
 import React from "react";
-import "./uploadPage/styles.css";
+import "./styles.css";
 
 function App() {
   return (
