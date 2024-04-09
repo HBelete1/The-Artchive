@@ -4,7 +4,6 @@ import Link from 'next/link';
 import './App.css';
 
 
-
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [dummyLoginClicked, setDummyLoginClicked] = useState(false); 
@@ -70,7 +69,7 @@ function App() {
         )}
         {showAdditionalLink && (
           <>
-            <Link href="/signup" className="link">My Portfolio</Link>
+            <Link href="/portfolio" className="link">My Portfolio</Link>
             <button className="link" onClick={handleLogout}>LOG OUT</button>
           </>
         )}
