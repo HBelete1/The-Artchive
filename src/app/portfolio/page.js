@@ -1,6 +1,6 @@
 import React from 'react';
-import FolioHeader from './portfolio_view/FolioHeader';
-import Container from './portfolio_view/Container';
+import FolioHeader from '../components/FolioHeader';
+import Container from '../components/Container';
 
 function App() {
   return (
