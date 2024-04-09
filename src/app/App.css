@@ -63,7 +63,10 @@ body, html {
   font-size: 24px;
   cursor: pointer;
 }
-
+.cards img {
+  width: 150px; /* Set the width of the images */
+  height: auto; /* Maintain aspect ratio */
+}
 .prev-btn {
   left: 0;
 }
