@@ -1,58 +1,91 @@
 'use client'
-import React from "react";
+import React, { useState } from "react";
+import Link from 'next/link';
+import Card from "../components/Card";
 import "./styles.css";
 
-function App() {
+const App = (props) => {
+  const [enteredImage, setEnteredImage] = useState('');
+  const [enteredName, setEnteredName] = useState('');
+  const [enteredTitle, setEnteredTitle] = useState('');
+  const [enteredDate, setEnteredDate] = useState('');
+  
+  const imageChangeHandler = (event) => {
+    setEnteredImage(event.target.value);
+  };
+  const nameChangeHandler = (event) => {
+    setEnteredName(event.target.value);
+  };
+  const titleChangeHandler = (event) => {
+    setEnteredTitle(event.target.value);
+  };
+  const dateChangeHandler = (event) => {
+    setEnteredDate(event.target.value);
+  };
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    const folioData = {
+      image: enteredImage,
+      name: enteredName,
+      title: enteredTitle,
+      date: enteredDate
+    };
+
+    console.log(folioData);
+    setEnteredImage('');
+    setEnteredName('');
+    setEnteredTitle('');
+    setEnteredDate('');
+  };
+
   return (
-    <div>
-      <button id="go-back-btn" onClick={() => window.history.back()}>
-        Go Back
-      </button>
-      <div className="container">
-        <div className="upload-image">
-          <div className="upload-box">
-            <label htmlFor="artwork-image">
-              <span>Upload Image</span>
-              <input type="file" id="artwork-image" accept="image/*" />
-            </label>
-          </div>
+    <div className="return">
+    <Link href = '/portfolio' class='link'>Return to portfolio</Link>
+    <Card className="upload">  
+    <form onSubmit={submitHandler}>
+      <div className='new-expense__controls'>
+      <div className='new-expense__control'>
+          <label>Image</label>
+          <input
+            type='text'
+            value={enteredImage}
+            onChange={imageChangeHandler}
+          />
         </div>
-        <form id="artwork-form">
-          <div className="form-group">
-            <div className="column">
-              <label htmlFor="title">Title:</label>
-              <input type="text" id="title" name="title" />
-            </div>
-            <div className="column">
-              <label htmlFor="date">Date:</label>
-              <input type="text" id="date" name="date" />
-            </div>
-          </div>
-          <div className="form-group"> {}
-            <div className="column">
-              <label htmlFor="description">Description:</label>
-              <input type="text" id="description" name="description" />
-            </div>
-            <div className="column">
-              <label htmlFor="category">Category:</label>
-              <select id="category" name="category">
-                <option value="painting">Painting</option>
-                <option value="abstract">Abstract</option>
-                <option value="still-life">Still Life</option>
-                <option value="pop-art">Pop Art</option>
-                <option value="impressionism">Impressionism</option>
-                <option value="expressionism">Expressionism</option>
-                {/* Add more options as needed */}
-              </select>
-            </div>
-          </div>
-          <button className="btn" id="submit-btn" type="submit">
-            Post
-          </button>
-        </form>
+        <div className='new-expense__control'>
+          <label>Name</label>
+          <input 
+            type='text' 
+            value={enteredName} 
+            onChange={nameChangeHandler} 
+          />
+        </div>
+        <div className='new-expense__control'>
+          <label>Title</label>
+          <input
+            type='text'
+            value={enteredTitle}
+            onChange={titleChangeHandler}
+          />
+        </div>
+        <div className='new-expense__control'>
+          <label>Date</label>
+          <input
+            type='date'
+            value={enteredDate}
+            onChange={dateChangeHandler}
+          />
+        </div>
       </div>
+      <div className='new-expense__actions'>
+        <button type='submit'>Add Post</button>
+      </div>
+    </form>
+    </Card>
     </div>
   );
-}
+};
 
 export default App;

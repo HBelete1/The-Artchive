@@ -110,6 +110,45 @@ select {
 .btn:hover {
   background-color: #6a1b9a;
 }
-label {
-  color:rgb(0, 0, 0);
+
+.new-expense__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.new-expense__control {
+  width: 90%
+}
+
+.new-expense__control label {
+  font-weight: bold;
+  color: black;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.new-expense__control input {
+  font: inherit;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 20rem;
+  max-width: 100%;
+}
+
+.new-expense__actions {
+  text-align: right;
+}
+
+.upload {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.return {
+  color: black;
 }
