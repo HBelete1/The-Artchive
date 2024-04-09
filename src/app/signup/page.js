@@ -9,7 +9,7 @@ export default function Signup() {
     return (
         <div class='bg'>
             <div class='header'>
-                <img src={image} alt='artchive logo' height='100' width='100' href='/signup'/>
+                <img src="/images/ARTCHIVE.png" alt='artchive logo' height='100' width='100' href='/signup'/>
                 <Link href = '/' class='link'>Return to home page</Link>
             </div>
             <Card class='input'>
