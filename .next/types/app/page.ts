@@ -1,4 +1,4 @@
-// File: C:\Users\funky\OneDrive\Documents\html learning\artchive\src\app\page.js
+// File: C:\Users\funky\Documents\web programming\git\The-Artchive\src\app\page.js
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
