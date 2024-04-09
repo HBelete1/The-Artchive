@@ -1,0 +1,127 @@
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #d9d9d9;
+    padding: 5px;
+    color: black;
+}
+
+.nav h1 {
+    font-family: dosis;
+    font-size: 40px;
+    text-align: center;
+    padding: 10px 500px;
+}
+
+.menu {
+    display: flex;
+    font-size: 20px;
+    padding: 5px 10px;
+    align-items: center;
+}
+
+
+.button {
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    background-color:white;
+    color:black;
+    border-radius: 12px;  
+    margin: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #ABAFD9;
+}
+
+.cardinfo {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+    column-gap: 20em;
+    row-gap: 1em;
+
+}
+
+.card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 5px;
+    margin: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+}
+
+.card p {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+    column-gap: 20em;
+    row-gap: 1em;
+    color: black;
+    padding: 15px;
+}
+
+#delete {
+    color: rgb(196, 41, 98);
+}
+
+body {
+    margin: 0;
+    background-color: #ABAFD9;
+}
+
+hr {
+    border-style: solid;
+    margin: 0;
+}
+
+
+
+h2 {
+    font-family: dosis;
+}
+
+h3 {
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+p > a {
+    padding: 10px;
+}
+
+.header {
+    left: 50%;
+    padding: 10px 500px;
+
+}
+
+.border {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+.cardcontainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; 
+
+}
+
+
+
