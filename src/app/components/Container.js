@@ -6,9 +6,7 @@ const Container = () => {
     return (
         <div className="container">
             <style>{'body {background-color: #d9d9d9;}'}</style>
-            <a href={""}>
-             <button className="button">Upload</button>
-            </a>
+            <a href='/uploadPage'>Upload</a>
             <ArtCard></ArtCard> 
             <ArtCard></ArtCard> 
             <ArtCard></ArtCard> 
