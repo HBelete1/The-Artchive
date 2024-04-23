@@ -1,4 +1,4 @@
-// File: C:\Users\funky\Documents\web programming\git\The-Artchive\src\app\page.js
+// File: C:\Users\helen\Desktop\Web Spring24\Final Project\The-Artchive-merging-in-progress\The-Artchive-merging-in-progress\src\app\page.js
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
