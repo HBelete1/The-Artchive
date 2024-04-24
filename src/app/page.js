@@ -19,26 +19,30 @@ function App() {
     'https://via.placeholder.com/400x200?text=Slide%204',
   ];
 
-  useEffect(() => {
+  /*useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
     }, 10000);
 
     return () => clearInterval(interval);
-  }, [slides.length]);
+  }, [slides.length]);*/
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get('http://localhost:8085/api/items/');
         console.log(response.data);
-        setItems(response.data);
+        setItems(response.data.items);
       } catch (error) {
         console.error('Error fetching items:', error);
       }
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    console.log(items); // Log items after it's updated
+  }, [items]);
 
   const handlePrevSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide === 0 ? slides.length - 1 : prevSlide - 1));
@@ -58,7 +62,7 @@ function App() {
     setShowAdditionalLink(false);
   }
 
-  /*const cards = [
+  /*const items = [
     { title: 'Card 1', description: 'Description of Card 1', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvsx3oh-U5UuHrsYJzxvJa4ooMbIDP8in_jQ&s',width: 100, 
     height: 200 },
     { title: 'Card 2', description: 'Description of Card 2', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvsx3oh-U5UuHrsYJzxvJa4ooMbIDP8in_jQ&s'},
@@ -114,17 +118,17 @@ function App() {
 
       {/* Render fetched items */}
       <div className="cards">
-          {Array.isArray(items) && items.map((item, index) => (
-            <div key={index} className="card">
-            <h3>{item.title}</h3>
-            <img src={item.imageUrl} alt={item.title} />
-            <p>{item.description}</p>
-          </div>
+          {items.map((item, index) => (
+            <div key={item._id} className="card">
+              <h3>{item.title}</h3>
+              <img src={item.image} alt={item.title} />
+              <p>{item.description}</p>
+            </div>
           ))}
         
       </div>
    
-    </div>
+    </div>  
   );
 }
 
