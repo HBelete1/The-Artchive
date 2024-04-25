@@ -5,9 +5,54 @@ import Button from '../components/Button'
 import Card from '../components/Card'
 import './login.css';
 import image from '../../../public/images/artchive.png'
+import { useState, useContext } from 'react';
+import axios from 'axios';
+import UserContext from '../context/UserContext';
+import { useRouter } from 'next/navigation';
 
+const Login = () => {
+    const router = useRouter();
+    const { userData, setUserData } = useContext(UserContext);
 
-export default function Login() {
+    // redirect if logged in
+    useEffect(() => {
+        if (userData.token) {
+            router.push('/');
+        }
+    }, [userData.token, router]);
+
+    const [formData, setFormData] = useState({
+        username: '',
+        password: '',
+    });
+    const [error, setError] = useState('');
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            // send login request to server
+            const response = await axios.post('http://localhost:8085/login', formData);
+            setUserData({
+                token: response.tata.token,
+                user: response.data.user,
+            });
+
+            // store authentication token in local storage
+            localStorage.setItem("auth-token", response.data.token);
+            router.push('/');
+        } catch (error) {
+            console.error('Login failed: ', error);
+        }   
+    }
+
+//export default function Login() {
 
     return (
         <div class='bg'>
@@ -17,7 +62,7 @@ export default function Login() {
             </div>
             <Card class='input'>
                 <h3>Log in to your account:</h3>
-                <form >
+                <form onSubmit={handleLogin}>
                     <label>Username:</label>
                     <input
                         id='username'
@@ -35,3 +80,4 @@ export default function Login() {
         </div>
     )
 }
+export default Login;
