@@ -1,21 +1,9 @@
-.bg {
-    background-color:rgb(171, 175, 217);
-    position:fixed;
-    width:100%;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content: top;
-    align-items: center;
-    padding:0px;
-}
-
-.input {
+/* .input {
     margin: 2rem auto;
     padding: 1rem;
     width: 90%;
     max-width: 40rem;
-}
+} */
 
 label {
     display: block;
@@ -30,19 +18,19 @@ Button {
   margin-bottom:10px;
 }
 
-.input input {
+/* .input input {
   font: inherit;
   display: block;
   width: 100%;
   border: 1px solid #ccc;
   padding: 0.15rem;
   margin-bottom: 0.5rem;
-}
+} */
   
-.input input:focus {
+/* .input input:focus {
   outline: none;
   border-color: #4f005f;
-}
+} */
 
 .link{
   text-decoration:underline;
@@ -53,8 +41,3 @@ Button {
   background-color: black;
 }
 
-.header{
-  width:100%;
-  height:100px;
-  background-color: gray;
-}

@@ -1,0 +1,26 @@
+.page {
+    background-color: #ABAFD9;
+    min-height: 100vh;
+}
+
+.nav {
+    background-color: grey;
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+    color: black;
+}
+
+.nav h1 {
+    font-family: dosis;
+    font-size: 40px;
+    text-align: center;
+    padding: 10px 500px;
+}
+
+.menu {
+    display: flex;
+    font-size: 20px;
+    padding: 5px 10px;
+    align-items: center;
+}

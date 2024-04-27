@@ -1,0 +1,10 @@
+.page {
+    color: black;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ABAFD9;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/017/490/775/large_2x/pastel-background-pink-purple-blue-rainbow-pattern-free-photo.jpg');
+    background-repeat: repeat-y;
+    min-height: 100vh;
+}

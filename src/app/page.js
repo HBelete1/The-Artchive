@@ -5,6 +5,7 @@ import Link from 'next/link';
 import './App.css';
 import { useRouter } from 'next/navigation';
 import UserContext from './context/UserContext'
+import ArtCard2 from './components/ArtCard2'
 
 
 const App = () => {
@@ -116,11 +117,7 @@ const App = () => {
       {/* Render fetched items */}
       <div className="cards">
           {items.map((item, index) => (
-            <div key={item._id} className="card">
-              <h3>{item.title}</h3>
-              <img src={item.image} alt={item.title} />
-              <p>{item.description}</p>
-            </div>
+            <ArtCard2 key={item._id} item={item}/>
           ))}
         
       </div>

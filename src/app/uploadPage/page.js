@@ -60,7 +60,7 @@ try {
     
 
   return (
-    <div className="return">
+    <div className={UploadPageStyles.page}>
     <Link href = '/portfolio' className='link'>Return to portfolio</Link>
     <Card className="upload">  
     <form onSubmit={submitHandler}>

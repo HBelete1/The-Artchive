@@ -9,6 +9,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import UserContext from '../context/UserContext';
 import { useRouter } from 'next/navigation';
+import LoginStyles from './login.module.css'
 
 const Login = () => {
     const router = useRouter();
@@ -59,14 +60,14 @@ const Login = () => {
 //export default function Login() {
 
     return (
-        <div class='bg'>
-            <div class='header'>
+        <div className={LoginStyles.page}>
+            <div className='header'>
                 <img src="/images/ARTCHIVE.png" alt='artchive logo' height='100' width='100' href='/signup'/>
                 <Link href = '/' class='link'>Return to home page</Link>
             </div>
-            <Card class='input'>
+            <Card className={LoginStyles.input}>
                 <h3>Log in to your account:</h3>
-                <form onChange={handleChange} onSubmit={handleLogin}>
+                <form onChange={handleChange} onSubmit={handleLogin} className={LoginStyles.form}>
                     <label>Username:</label>
                     <input
                         id='username'
@@ -79,7 +80,7 @@ const Login = () => {
                     />
                     <Button type='submit'>Log In</Button>
                 </form>
-                <Link href = '/signup' class='link'>Need to create an account? Sign up!</Link>
+                <Link href = '/signup' className='link'>Need to create an account? Sign up!</Link>
             </Card>
         </div>
     )
