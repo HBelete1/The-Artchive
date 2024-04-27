@@ -66,10 +66,13 @@ userRouter.post("/login", bodyParser.json(), async (req, res) => {
 userRouter.post("/tokenIsValid", async (req, res) => {
     try {
         const token = req.header("Authorization");
+        console.log(1)
         if (!token) return res.json(false);
         const verified = jwt.verify(tokenParts[1], process.env.JWT_SECRET);
+        console.log(2)
         if (!verified) return res.json(false);
         const user = await User.findById(verified.id);
+        console.log(3)
         if (!user) return res.json(false);
         return res.json(true);
     } catch (err) {

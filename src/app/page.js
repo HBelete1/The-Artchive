@@ -1,15 +1,17 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 import './App.css';
+import { useRouter } from 'next/navigation';
+import UserContext from './context/UserContext'
 
 
-function App() {
+const App = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [dummyLoginClicked, setDummyLoginClicked] = useState(false); 
-  const [showAdditionalLink, setShowAdditionalLink] = useState(false);
   const [items, setItems] = useState([]);
+  const router = useRouter();
+  const { userData, setUserData } = useContext(UserContext);
 
   // Dummy data for the slideshow
   const slides = [
@@ -52,14 +54,11 @@ function App() {
     setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
   };
 
-  const handleDummyLogin = () => {
-    setShowAdditionalLink(true);
-    setDummyLoginClicked(true);
-  }
-
   const handleLogout = () => {
-    setDummyLoginClicked(false);
-    setShowAdditionalLink(false);
+    // new
+    setUserData({ token: undefined, user: undefined });
+    localStorage.removeItem('auth-token');
+    router.push('login')
   }
 
   /*const items = [
@@ -84,16 +83,14 @@ function App() {
         <div className="centered-element">
           <h1>THE ARTCHIVE</h1>
         </div>
-        {!dummyLoginClicked && (
-          <button className="link" onClick={handleDummyLogin}>DUMMY LOG IN</button>
-        )}
-        {showAdditionalLink && (
-          <>
-            <Link href="/portfolio" className="link">My Portfolio</Link>
-            <button className="link" onClick={handleLogout}>LOG OUT</button>
-          </>
-        )}
-        {!dummyLoginClicked && <Link href="/login" className="link">LOG IN</Link>}
+      {userData.token ? (
+        <>
+          <Link href="/portfolio" className="link">My Portfolio</Link>
+          <button className = "link" onClick={handleLogout}>LOG OUT</button>
+        </>
+      ) : (
+        <Link href="/login" className ='link'>LOG IN</Link>
+      )}
       </header>
 
       {/* Slideshow */}

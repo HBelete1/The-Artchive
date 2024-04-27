@@ -1,9 +1,11 @@
 'use client'
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Link from 'next/link';
 import Card from "../components/Card";
 import axios from 'axios';
 import "./styles.css";
+import { useRouter } from 'next/navigation';
+import UserContext from '../context/UserContext'
 
 const App = (props) => {
   const [enteredImage, setEnteredImage] = useState('');
@@ -11,6 +13,8 @@ const App = (props) => {
   const [enteredDate, setEnteredDate] = useState('');
   const [enteredDescription, setEnteredDescription] = useState('');
   const [enteredCategory, setEnteredCategory] = useState('');
+  const router = useRouter();
+  const { userData, setUserData } = useContext(UserContext);
   
   const imageChangeHandler = (event) => {
     setEnteredImage(event.target.value);
@@ -39,7 +43,9 @@ const App = (props) => {
       category: enteredCategory
     };
 try {
-  const response = await axios.post('http://localhost:8085/api/items/uploadPage', folioData);
+  console.log(userData.token);
+  console.log('Token 2: ' + localStorage.getItem('auth-token'))
+  const response = await axios.post('http://localhost:8085/api/items/uploadPage', folioData, {headers: { 'Authorization': 'Bearer: ' + localStorage.getItem('auth-token')}});
   console.log(response.data);
     setEnteredImage('');
     setEnteredTitle('');

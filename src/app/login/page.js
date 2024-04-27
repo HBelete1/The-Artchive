@@ -49,7 +49,8 @@ const Login = () => {
             // store authentication token in local storage
             localStorage.setItem("auth-token", response.data.token);
             console.log('what about here?')
-            router.push('/');
+            console.log(response.data.token)
+            //router.push('/');
         } catch (error) {
             console.error('Login failed: ', error);
         }   

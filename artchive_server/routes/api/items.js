@@ -9,14 +9,14 @@ const Item = require('../../models/Item');
 router.get('/', (req, res) => {
     Item.find()
         .then((items) => res.json({items}))
-        .catch((err) => res.status(400).json({noitemsfound: 'No items found'}));
+        .catch((err) => res.status(404).json({noitemsfound: 'No items found'}));
 });
 
 //Items by you
 router.get('/portfolio/:id', auth, (req, res) => {
     Item.findById(req.params.id)
         .then((item) => res.json({item}))
-        .catch((err) => res.status(400).json({noitemfound: 'No item found'}));
+        .catch((err) => res.status(404).json({noitemfound: 'No item found'}));
 });
 
 //Edit item
@@ -37,7 +37,7 @@ router.post('/uploadPage', auth, bodyParser.json(), (req, res) => {
 router.delete('/portfolio/:id', auth, (req, res) => {
     Item.findByIdAndDelete(req.params.id, req.body)
         .then((item) => res.json({ msg: 'Item entry delete successfully'}))
-        .catch((err) => res.status(400).json({error: 'No such item'}));
+        .catch((err) => res.status(404).json({error: 'No such item'}));
 });
 
 module.exports = router;
