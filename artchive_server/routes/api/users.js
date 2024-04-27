@@ -4,7 +4,10 @@ const userRouter = express.Router();
 const jwt = require('jsonwebtoken');
 const auth = require('../../middleware/auth');
 const User = require('../../models/User');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+const dotenv = require('dotenv')
+dotenv.config();
+
 
 // Signup Route
 userRouter.post("/signup", bodyParser.json(), async (req, res) => {
@@ -35,7 +38,7 @@ userRouter.post("/signup", bodyParser.json(), async (req, res) => {
 });
 
 // Login Route
-userRouter.post("/login", auth, bodyParser.json(), async (req, res) => {
+userRouter.post("/login", bodyParser.json(), async (req, res) => {
     try {
         const { username, password } = req.body;
         if (!username || !password) {

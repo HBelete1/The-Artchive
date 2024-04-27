@@ -1,11 +1,51 @@
+'use client'
 //imports
 import Link from 'next/link';
 import Card from '../components/Card'
 import Button from '../components/Button'
 import './signup.css'
 import image from '../../../public/images/artchive.png'
+import {useState, useContext } from 'react';
+import axios from 'axios';
+import UserContext from '../context/UserContext' 
 
-export default function Signup() {
+const Signup = () => {
+    const { setUserData } = useContext(UserContext);
+
+    const [formData, setFormData] = useState ({
+        username:'',
+        password: '',
+        confirmPassword: '',
+    });
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.id]: e.target.value,
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        console.log(formData)
+        e.preventDefault();
+
+        try {
+            await axios.post('http://localhost:8085/api/users/signup', formData);
+            const loginRes = await axios.post('http://localhost:8085/api/users/login', {
+                username: formData.username,
+                password: formData.password
+            })
+            setUserData({
+                token: loginRes.data.token,
+                user: loginRes.data.user,
+            })
+            localStorage.setItem('auth-token', loginRes.data.token)
+            router.push('/')
+        } catch(error) {
+            console.error('Signup failed:', error)
+        }
+    }
+
     return (
         <div class='bg'>
             <div class='header'>
@@ -14,7 +54,7 @@ export default function Signup() {
             </div>
             <Card class='input'>
                 <h3>Create an account:</h3>
-                <form >
+                <form onSubmit = {handleSubmit} onChange = {handleChange}>
                     <label>Username:</label>
                     <input
                         id='username'
@@ -27,7 +67,7 @@ export default function Signup() {
                     />
                     <label>Confirm Password:</label>
                     <input 
-                        id='confpassword'
+                        id='confirmPassword'
                         type='text'
                     />
                     <Button type='submit'>Sign Up</Button>
@@ -37,3 +77,4 @@ export default function Signup() {
         </div>
     )
 }
+export default Signup;

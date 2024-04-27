@@ -39,7 +39,7 @@ const Login = () => {
         try {
             // send login request to server
             console.log('we good so far')
-            const response = await axios.post('http://localhost:8085/login', formData);
+            const response = await axios.post('http://localhost:8085/api/users/login', formData);
             console.log('we good here?')
             setUserData({
                 token: response.data.token,

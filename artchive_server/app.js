@@ -5,11 +5,11 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const items = require('./routes/api/items');
 const users = require('./routes/api/users');
+require('dotenv').config();
 
-app.use(express.json())
-app.use(cors);
-app.use('/api/users', users);
 app.use(cors({origin: true, credentials: true}));
+app.use(express.json())
+app.use('/api/users', users);
 app.use('/api/items', items);
 app.get('/', (req, res) => res.send('Hello world'));
 
