@@ -7,6 +7,7 @@ const items = require('./routes/api/items');
 const users = require('./routes/api/users');
 
 app.use(express.json())
+app.use(cors);
 app.use('/api/users', users);
 app.use(cors({origin: true, credentials: true}));
 app.use('/api/items', items);

@@ -30,7 +30,7 @@ const Login = () => {
     const handleChange = (e) => {
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value,
+            [e.target.id]: e.target.value,
         });
     };
 
@@ -40,13 +40,15 @@ const Login = () => {
             // send login request to server
             console.log('we good so far')
             const response = await axios.post('http://localhost:8085/login', formData);
+            console.log('we good here?')
             setUserData({
-                token: response.tata.token,
+                token: response.data.token,
                 user: response.data.user,
             });
 
             // store authentication token in local storage
             localStorage.setItem("auth-token", response.data.token);
+            console.log('what about here?')
             router.push('/');
         } catch (error) {
             console.error('Login failed: ', error);
