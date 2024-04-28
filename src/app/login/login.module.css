@@ -1,0 +1,44 @@
+.page {
+    background-color: rgb(171, 175, 217);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    padding: 0px;
+}
+
+.input {
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 40rem;
+}
+
+.input input {
+    font: inherit;
+    /* display: block; */
+    /* width: 100%; */
+    border: 1px solid #ccc;
+    padding: 0.15rem;
+    /* margin-bottom: 2rem; */
+}
+
+.input input:focus {
+    outline: none;
+    border-color: #4f005f;
+}
+
+.form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+}
