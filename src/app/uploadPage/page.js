@@ -6,6 +6,7 @@ import axios from 'axios';
 import "./styles.css";
 import { useRouter } from 'next/navigation';
 import UserContext from '../context/UserContext'
+import UploadPageStyles from './uploadPage.module.css'
 
 const App = (props) => {
   const [enteredImage, setEnteredImage] = useState('');

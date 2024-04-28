@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Button from '../components/Button'
 import Card from '../components/Card'
-import './login.css';
+import '../app.css';
 import image from '../../../public/images/artchive.png'
 import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
@@ -66,18 +66,19 @@ const Login = () => {
                 <Link href = '/' class='link'>Return to home page</Link>
             </div>
             <Card className={LoginStyles.input}>
-                <h3>Log in to your account:</h3>
                 <form onChange={handleChange} onSubmit={handleLogin} className={LoginStyles.form}>
-                    <label>Username:</label>
+                <h3>Log in to your account:</h3>
+                    <label>Username:
                     <input
                         id='username'
                         type='text'
                     />
-                    <label>Password:</label>
+                    </label>
+                    <label>Password:
                     <input
                         id='password'
                         type='text'
-                    />
+                    /></label>
                     <Button type='submit'>Log In</Button>
                 </form>
                 <Link href = '/signup' className='link'>Need to create an account? Sign up!</Link>

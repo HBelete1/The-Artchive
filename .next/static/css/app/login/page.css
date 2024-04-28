@@ -30,52 +30,157 @@
   /* margin: 0 10px; */
   height: auto;
 }
-/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./src/app/login/login.css ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************/
-/* .input {
-    margin: 2rem auto;
-    padding: 1rem;
-    width: 90%;
-    max-width: 40rem;
-} */
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./src/app/app.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+/*body, html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}*/
 
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    margin-top:10px;
+.App {
+  text-align: center;
+  background-color: #ABAFD9;
 }
 
-Button {
-  display:block;
-  margin-top:3px;
-  margin-bottom:10px;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d7d7d8;
+  color: black;
+  padding: 10px 20px;
 }
 
-/* .input input {
-  font: inherit;
-  display: block;
+.logo img {
+  max-width: 100px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input[type="text"] {
+  margin-right: 10px;
+}
+
+.centered-element {
+  flex: 1 1;
+  text-align: center;
+}
+
+.centered-element h1 {
+  margin: 0;
+}
+
+
+.slideshow {
+  position: relative;
+  margin: 20px auto 0;
+  width: 600px;
+}
+
+.slide-img {
   width: 100%;
-  border: 1px solid #ccc;
-  padding: 0.15rem;
-  margin-bottom: 0.5rem;
-} */
-  
-/* .input input:focus {
-  outline: none;
-  border-color: #4f005f;
-} */
-
-.link{
-  text-decoration:underline;
-  color:blue;
-}
-.link:hover{
-  color:white;
-  background-color: black;
+  height: auto;
 }
 
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
+}
+
+.slide-indicators {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background-color: #d7d7d8;
+}
+
+.discover-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 20px;
+}
+
+.discover {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.oval {
+  width: 300px;
+  height: 120px;
+  border-radius: 60px;
+  background-color: #d7d7d8;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.line {
+  position: absolute;
+  width: calc(50% - 160px);
+  height: 2px;
+  background-color: #d7d7d8;
+  top: 50%;
+  transform: translateY(-1px);
+}
+.cards img {
+  width: 150px; 
+  height: 100px;; 
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20 px;
+  gap: 20 px;  
+  grid-row-gap: 20px;
+  justify-content: space-between; 
+  margin-top: 50px;
+  border-radius: 20px;
+  height: 100%;
+  width: 100%;
+}
+
+.card {
+  padding: 20px;
+  background-color: #d7d7d8;
+  border-radius: 10px;
+  margin: 0 10px;
+  height: auto;
+}
 
 /*!**************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/login/login.module.css ***!
