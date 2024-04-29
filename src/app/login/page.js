@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Button from '../components/Button'
 import Card from '../components/Card'
-import '../App.css';
+import '../app.css';
 import image from '../../../public/images/artchive.png'
 import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
@@ -42,20 +42,22 @@ const Login = () => {
             console.log('we good so far')
             const response = await axios.post('http://localhost:8085/api/users/login', formData);
             console.log('we good here?')
+            localStorage.setItem("auth-token", response.data.token);
+            //localStorage.setItem("userId", response.data.user.id);
             setUserData({
                 token: response.data.token,
                 user: response.data.user,
             });
 
             // store authentication token in local storage
-            localStorage.setItem("auth-token", response.data.token);
+           
             console.log('what about here?')
             console.log(response.data.token)
-            //router.push('/');
-        } catch (err) {
-            console.error('Login failed: ', err);
-            setError("Error: " + err.response.data.msg)
-        }   
+            router.push('/');
+        } catch (error) {
+            console.error('Login failed: ', error);
+            setError('Invalid username or password');
+        }  
     }
 
 //export default function Login() {
@@ -83,7 +85,6 @@ const Login = () => {
                     <Button type='submit'>Log In</Button>
                 </form>
                 <Link href = '/signup' className='link'>Need to create an account? Sign up!</Link>
-                <h4 className='error'>{error}</h4>
             </Card>
         </div>
     )

@@ -17,6 +17,11 @@ const ItemSchema = new mongoose.Schema({
     },
     category: {
         type: String,
+    },
+    user: {
+        type: mongoose.Types.ObjectId,
+        required: true,
+        ref: 'user'
     }
 })
 
