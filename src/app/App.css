@@ -124,12 +124,12 @@
 }
 .cards img {
   width: 150px; 
-  height: 100px;; 
+  height: 100px; 
 }
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20 px;  
+  gap: 20px;  
   grid-row-gap: 20px;
   justify-content: space-between; 
   margin-top: 50px;
