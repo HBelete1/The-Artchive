@@ -32,6 +32,8 @@ const App = (props) => {
   const categoryChangeHandler = (event) => {
     setEnteredCategory(event.target.value);
   };
+  console.log("USER")
+  console.log(userData.user)
 
   const submitHandler = async (event) => {
     event.preventDefault();
@@ -41,7 +43,8 @@ const App = (props) => {
       title: enteredTitle,
       date: enteredDate,
       description: enteredDescription,
-      category: enteredCategory
+      category: enteredCategory,
+      uploader: userData.user
     };
 try {
   console.log(userData.token);

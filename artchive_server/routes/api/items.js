@@ -13,8 +13,8 @@ router.get('/', (req, res) => {
 });
 
 //Items by you
-router.get('/portfolio/:id', auth, (req, res) => {
-    Item.findById(req.params.id)
+router.get('/portfolio/', auth, (req, res) => {
+    Item.findById(req.params.username)
         .then((item) => res.json({item}))
         .catch((err) => res.status(404).json({noitemfound: 'No item found'}));
 });

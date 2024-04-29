@@ -39,9 +39,7 @@ const Login = () => {
         e.preventDefault();
         try {
             // send login request to server
-            console.log('we good so far')
             const response = await axios.post('http://localhost:8085/api/users/login', formData);
-            console.log('we good here?')
             setUserData({
                 token: response.data.token,
                 user: response.data.user,
@@ -49,7 +47,7 @@ const Login = () => {
 
             // store authentication token in local storage
             localStorage.setItem("auth-token", response.data.token);
-            console.log('what about here?')
+            localStorage.setItem("username", response.data.user.username)
             console.log(response.data.token)
             //router.push('/');
         } catch (err) {

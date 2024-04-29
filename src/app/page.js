@@ -59,6 +59,7 @@ const App = () => {
     // new
     setUserData({ token: undefined, user: undefined });
     localStorage.removeItem('auth-token');
+    localStorage.removeItem('username')
     router.push('login')
   }
 

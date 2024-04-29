@@ -17,6 +17,10 @@ const ItemSchema = new mongoose.Schema({
     },
     category: {
         type: String,
+    },
+    uploader: {
+        type: String,
+        required: true,
     }
 })
 

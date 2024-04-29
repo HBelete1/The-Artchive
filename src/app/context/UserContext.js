@@ -17,6 +17,13 @@ export const UserProvider = ({ children }) => {
                 token: token,
             }));
         }
+        const user = localStorage.getItem('username');
+        if (user) {
+            setUserData (prev => ({
+                ...prev,
+                user: user,
+            }))
+        }
     }, []);
 
     return (
