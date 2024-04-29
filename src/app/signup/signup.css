@@ -58,3 +58,8 @@ Button {
   height:100px;
   background-color: gray;
 }
+
+.error {
+  color:red;
+  text-decoration: underline;
+}

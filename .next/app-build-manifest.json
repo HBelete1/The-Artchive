@@ -17,6 +17,18 @@
       "static/chunks/main-app.js",
       "static/css/app/login/page.css",
       "static/chunks/app/login/page.js"
+    ],
+    "/portfolio/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/portfolio/page.css",
+      "static/chunks/app/portfolio/page.js"
+    ],
+    "/signup/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/signup/page.css",
+      "static/chunks/app/signup/page.js"
     ]
   }
 }

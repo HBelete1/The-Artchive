@@ -145,3 +145,8 @@
   margin: 0 10px;
   height: auto;
 }
+
+.error {
+  color:red;
+  text-decoration: underline;
+}

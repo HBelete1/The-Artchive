@@ -18,6 +18,8 @@ const Signup = () => {
         confirmPassword: '',
     });
 
+    const [error, setError] = useState('');
+
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -41,8 +43,9 @@ const Signup = () => {
             })
             localStorage.setItem('auth-token', loginRes.data.token)
             router.push('/')
-        } catch(error) {
-            console.error('Signup failed:', error)
+        } catch(err) {
+            console.error('Signup failed:', err)
+            setError("Error: " + err.response.data.msg)
         }
     }
 
@@ -73,6 +76,7 @@ const Signup = () => {
                     <Button type='submit'>Sign Up</Button>
                 </form>
                 <Link href = '/login' class='link'>Already have an account? Log in!</Link>
+                <h4 className='error'>{error}</h4>
             </Card>
         </div>
     )
