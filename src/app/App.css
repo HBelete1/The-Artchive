@@ -124,7 +124,7 @@
 }
 .cards img {
   width: 150px; 
-  height: 100px; 
+  height: 100px;; 
 }
 .cards {
   display: grid;

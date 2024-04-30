@@ -39,23 +39,21 @@ const Login = () => {
         e.preventDefault();
         try {
             // send login request to server
-            console.log('we good so far')
             const response = await axios.post('http://localhost:8085/api/users/login', formData);
-            console.log('we good here?')
+            localStorage.setItem("auth-token", response.data.token);
+            //localStorage.setItem("userId", response.data.user.id);
             setUserData({
                 token: response.data.token,
                 user: response.data.user,
             });
 
             // store authentication token in local storage
-            localStorage.setItem("auth-token", response.data.token);
-            console.log('what about here?')
             console.log(response.data.token)
-            //router.push('/');
+            router.push('/');
         } catch (err) {
             console.error('Login failed: ', err);
-            setError("Error: " + err.response.data.msg)
-        }   
+            setError("Error: "+err.response.data.msg);
+        }  
     }
 
 //export default function Login() {

@@ -13,29 +13,38 @@ router.get('/', (req, res) => {
 });
 
 //Items by you
-router.get('/portfolio/:id', auth, (req, res) => {
-    Item.findById(req.params.id)
-        .then((item) => res.json({item}))
+router.get('/portfolio', auth, (req, res) => {
+    const userId = req.user;
+    Item.find({
+        user: userId
+    })
+        .then((items) => res.json({items}))
         .catch((err) => res.status(404).json({noitemfound: 'No item found'}));
 });
 
 //Edit item
-router.put('/portfolio/:id', auth, (req, res) => {
+router.put('/:id', auth, (req, res) => {
     Item.findByIdAndUpdate(req.params.id, req.body)
         .then((item) => res.json({msg: 'Update successfully'}))
         .catch((err) => res.status(400).json({error: 'Unable to update the Database'}));
 });
 
 //Item create
-router.post('/uploadPage', auth, bodyParser.json(), (req, res) => {
-    Item.create(req.body)
-        .then((item) => res.json({ msg: 'Item added successfully' }))
-        .catch((err) => res.status(400).json({error: 'Error'}));
+router.post('/uploadPage', auth, bodyParser.json(), async (req, res) => {
+   try {
+    const userId = req.user;
+    const { image, title, date, description, category } = req.body;
+    const newItem = await Item.create({ image, title, date, description, category, user:userId});
+
+        res.json({ msg: 'Item added successfully', item: newItem });
+    } catch (err) {
+        res.status(400).json({ error: 'Error creating item', message: err.message });
+    }
 });
 
 //Delete items
 router.delete('/portfolio/:id', auth, (req, res) => {
-    Item.findByIdAndDelete(req.params.id, req.body)
+    Item.findByIdAndDelete(req.params.id)
         .then((item) => res.json({ msg: 'Item entry delete successfully'}))
         .catch((err) => res.status(404).json({error: 'No such item'}));
 });
