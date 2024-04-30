@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Button from '../components/Button'
 import Card from '../components/Card'
-import '../app.css';
+import '../App.css';
 import image from '../../../public/images/artchive.png'
 import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
@@ -39,9 +39,7 @@ const Login = () => {
         e.preventDefault();
         try {
             // send login request to server
-            console.log('we good so far')
             const response = await axios.post('http://localhost:8085/api/users/login', formData);
-            console.log('we good here?')
             localStorage.setItem("auth-token", response.data.token);
             //localStorage.setItem("userId", response.data.user.id);
             setUserData({
@@ -54,9 +52,9 @@ const Login = () => {
             console.log('what about here?')
             console.log(response.data.token)
             router.push('/');
-        } catch (error) {
-            console.error('Login failed: ', error);
-            setError('Invalid username or password');
+        } catch (err) {
+            console.error('Login failed: ', err);
+            setError("ERROR: "+err.resoinse.data.msg);
         }  
     }
 
@@ -85,6 +83,7 @@ const Login = () => {
                     <Button type='submit'>Log In</Button>
                 </form>
                 <Link href = '/signup' className='link'>Need to create an account? Sign up!</Link>
+                <h4 className='error'>{error}</h4>
             </Card>
         </div>
     )
