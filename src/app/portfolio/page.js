@@ -27,7 +27,7 @@ function App() {
   return (
     <div className={PortfolioStyles.page}>
       <FolioHeader />
-      <Container items={items} />
+      <Container items={items}/>
     </div>
   )
 }

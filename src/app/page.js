@@ -5,7 +5,7 @@ import Link from 'next/link';
 import './App.css';
 import { useRouter } from 'next/navigation';
 import UserContext from './context/UserContext'
-import ArtCard2 from './components/ArtCard2'
+import ArtCard from './components/ArtCard'
 
 
 const App = () => {
@@ -117,7 +117,7 @@ const App = () => {
       {/* Render fetched items */}
       <div className="cards">
           {items.map((item, index) => (
-            <ArtCard2 key={item._id} item={item}/>
+            <ArtCard key={item._id} item={item}/>
           ))}
         
       </div>
