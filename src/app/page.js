@@ -13,35 +13,32 @@ const App = () => {
   const [items, setItems] = useState([]);
   const router = useRouter();
   const { userData, setUserData } = useContext(UserContext);
-
+  const [slides, setSlides] = useState([]);
   // Dummy data for the slideshow
-  const slides = [
-    'https://via.placeholder.com/400x200?text=Slide%201',
-    'https://via.placeholder.com/400x200?text=Slide%202',
-    'https://via.placeholder.com/400x200?text=Slide%203',
-    'https://via.placeholder.com/400x200?text=Slide%204',
-  ];
-
-  /*useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, [slides.length]);*/
+  
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get('http://localhost:8085/api/items/');
-        console.log(response.data);
-        setItems(response.data.items);
+        const fetchedItems = response.data.items;
+        const itemImages = fetchedItems.map(item => item.image);
+        setItems(fetchedItems);
+        setSlides(itemImages);
       } catch (error) {
         console.error('Error fetching items:', error);
       }
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [slides.length]);
 
   useEffect(() => {
     console.log(items); // Log items after it's updated
@@ -62,14 +59,6 @@ const App = () => {
     router.push('login')
   }
 
-  /*const items = [
-    { title: 'Card 1', description: 'Description of Card 1', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvsx3oh-U5UuHrsYJzxvJa4ooMbIDP8in_jQ&s',width: 100, 
-    height: 200 },
-    { title: 'Card 2', description: 'Description of Card 2', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvsx3oh-U5UuHrsYJzxvJa4ooMbIDP8in_jQ&s'},
-    { title: 'Card 3', description: 'Description of Card 1', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvsx3oh-U5UuHrsYJzxvJa4ooMbIDP8in_jQ&s',width: 100, 
-    height: 200 },
-    { title: 'Card 4', description: 'Description of Card 4', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvsx3oh-U5UuHrsYJzxvJa4ooMbIDP8in_jQ&s' }
-  ];*/
 
   return (
     <div className="App">
@@ -77,10 +66,7 @@ const App = () => {
         <div className="logo">
           <img src="/images/ARTCHIVE.png" alt="Our Logo" />
         </div>
-        <div className="search-bar">
-          <input type="text" placeholder="artist/category" />
-          <button type="submit">Search</button>
-        </div>
+        
         <div className="centered-element">
           <h1>THE ARTCHIVE</h1>
         </div>
