@@ -48,13 +48,11 @@ const Login = () => {
             });
 
             // store authentication token in local storage
-           
-            console.log('what about here?')
             console.log(response.data.token)
             router.push('/');
         } catch (err) {
             console.error('Login failed: ', err);
-            setError("ERROR: "+err.resoinse.data.msg);
+            setError("Error: "+err.response.data.msg);
         }  
     }
 
