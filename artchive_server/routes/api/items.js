@@ -23,7 +23,7 @@ router.get('/portfolio', auth, (req, res) => {
 });
 
 //Edit item
-router.put('/portfolio/:id', auth, (req, res) => {
+router.put('/:id', auth, (req, res) => {
     Item.findByIdAndUpdate(req.params.id, req.body)
         .then((item) => res.json({msg: 'Update successfully'}))
         .catch((err) => res.status(400).json({error: 'Unable to update the Database'}));

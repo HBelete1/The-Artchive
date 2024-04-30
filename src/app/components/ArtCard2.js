@@ -5,11 +5,11 @@ import Card from "./Card";
 
 const ArtCard2 = ({item, children}) => {
 
-  const [enteredImage, setEnteredImage] = useState('');
-  const [enteredTitle, setEnteredTitle] = useState('');
-  const [enteredDate, setEnteredDate] = useState('');
-  const [enteredDescription, setEnteredDescription] = useState('');
-  const [enteredCategory, setEnteredCategory] = useState('');
+  const [enteredImage, setEnteredImage] = useState(item.image);
+  const [enteredTitle, setEnteredTitle] = useState(item.title);
+  const [enteredDate, setEnteredDate] = useState(item.date);
+  const [enteredDescription, setEnteredDescription] = useState(item.description);
+  const [enteredCategory, setEnteredCategory] = useState(item.category);
 
   const imageChangeHandler = (event) => {
         setEnteredImage(event.target.value);
@@ -25,12 +25,12 @@ const ArtCard2 = ({item, children}) => {
   };
     const categoryChangeHandler = (event) => {
         setEnteredCategory(event.target.value);
-  };
+  };/* 
   setEnteredImage(item.image)
   setEnteredTitle(item.title)
   setEnteredDate(item.date)
   setEnteredDescription(item.description)
-  setEnteredCategory(item.category)
+  setEnteredCategory(item.category) */
  
   const submitHandler = async(event) => {
     event.preventDefault()
@@ -40,13 +40,14 @@ const ArtCard2 = ({item, children}) => {
       title: enteredTitle,
       date: enteredDate,
       description: enteredDescription,
-      categori: enteredCategory
+      category: enteredCategory
     }
     try {
-      console.log(userData.token)
+      //console.log(userData.token)
       console.log('Token 2: '+localStorage.getItem('auth-token'))
-      const link = 'http://localhost:8085/api/items/portfolio:' + item.id
-      const response = await axios.post(link, folioData, {headers: {'Authorization': 'Bearer '+localStorage.getItem('auth-token')}})
+      console.log(item._id)
+      const link = 'http://localhost:8085/api/items/portfolio/' + item._id
+      const response = await axios.put(link, folioData, {headers: {'Authorization': 'Bearer '+localStorage.getItem('auth-token')}})
       console.log(response.data);
     } catch (error) {
       console.error('Error altering data:', error)
@@ -54,6 +55,7 @@ const ArtCard2 = ({item, children}) => {
   }
   return (<Card>
     <div>
+      <img src={item.image} alt={item.title} />
       <form onSubmit = {submitHandler}>
                 <div>
                     <label htmlFor='image'>Image</label>
